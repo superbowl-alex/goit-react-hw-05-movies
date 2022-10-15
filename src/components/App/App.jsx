@@ -1,17 +1,12 @@
+import { Routes, Route } from 'react-router-dom';
 import GlobalStyles from 'GlobalStyles';
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
+    <div>
+      <Routes>
+        <Route path="/" element={<div>Home</div>} />
+      </Routes>
       <GlobalStyles />
       React homework template
     </div>
