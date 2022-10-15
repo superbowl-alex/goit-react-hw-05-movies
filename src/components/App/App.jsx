@@ -1,6 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import GlobalStyles from 'GlobalStyles';
 import { Container, Header, Link } from './App.styled';
+import Home from '../../Pages/Home';
+import Movies from '../../Pages/Movies';
+import MovieDetails from '../../Pages/MovieDetails';
 
 export const App = () => {
   return (
@@ -14,8 +17,10 @@ export const App = () => {
         </nav>
       </Header>
       <Routes>
-        <Route path="/" element={<div>Home</div>} />
-        <Route path="/movies" element={<div>Movies</div>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />} />
         <Route path="*" element={<div>Error</div>} />
       </Routes>
       <GlobalStyles />
