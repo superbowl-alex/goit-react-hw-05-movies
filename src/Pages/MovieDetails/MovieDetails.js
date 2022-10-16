@@ -5,7 +5,7 @@ import MovieDescription from './MovieDescription';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState(null);
   useEffect(() => {
     fetchMovieDetails(movieId)
       .then(setMovie)
