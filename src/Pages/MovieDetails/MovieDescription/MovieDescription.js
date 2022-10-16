@@ -13,7 +13,7 @@ const MovieDescription = ({
       <div>Overview</div>
       <div>{overview}</div>
       <div>Genres</div>
-      {/* <div>{genres.map(({ name }) => name).join(' ')}</div> */}
+      <div>{genres.map(({ name }) => name).join(' ')}</div>
     </>
   );
 };
