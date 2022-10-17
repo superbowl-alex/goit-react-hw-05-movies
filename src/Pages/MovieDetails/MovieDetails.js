@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieDetails } from '../../Services/fetchMovies';
-import MovieDescription from './MovieDescription';
+import MovieDescription from '../../components/MovieDescription';
+import MovieImage from '../../components/MovieImage';
+import AdditionInform from '../../components/AdditionInform';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -16,17 +18,12 @@ const MovieDetails = () => {
     return null;
   }
 
-  const { poster_path, original_title } = movie;
   return (
     <main>
       <button type="button">Go back</button>
-      <div>
-        <img
-          src={`https://www.themoviedb.org/t/p/w300${poster_path}`}
-          alt={original_title}
-        />
-        <MovieDescription movie={movie} />
-      </div>
+      <MovieImage movie={movie} />
+      <MovieDescription movie={movie} />
+      <AdditionInform />
     </main>
   );
 };
