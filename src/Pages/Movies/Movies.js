@@ -23,7 +23,6 @@ const Movies = () => {
     async function fetch() {
       try {
         const movies = await fetchSearchMovies(query);
-        console.log(movies);
         setSearchMovies(movies);
       } catch (error) {
         console.log(error);

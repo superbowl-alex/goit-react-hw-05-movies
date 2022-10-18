@@ -1,12 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const SearchMoviesList = movies => {
-  console.log(movies);
+const SearchMoviesList = ({ movies }) => {
   return (
     <ul>
       {movies.map(({ id, original_title }) => (
-        <NavLink key={id} to={`movies/${id}`}>
+        <NavLink key={id} to={`${id}`}>
           {original_title}
         </NavLink>
       ))}
