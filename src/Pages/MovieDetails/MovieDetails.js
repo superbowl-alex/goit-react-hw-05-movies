@@ -14,8 +14,8 @@ const MovieDetails = () => {
   useEffect(() => {
     async function fetch() {
       try {
-        const movies = await fetchMovieDetails(movieId);
-        setMovie(movies);
+        const film = await fetchMovieDetails(movieId);
+        setMovie(film);
       } catch (error) {
         console.log(error);
       }
@@ -32,7 +32,7 @@ const MovieDetails = () => {
       <Link to={backLinkHref}>Go back</Link>
       <MovieImage movie={movie} />
       <MovieDescription movie={movie} />
-      <AdditionInform />
+      <AdditionInform movie={movie} />
     </main>
   );
 };

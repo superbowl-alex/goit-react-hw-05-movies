@@ -21,15 +21,11 @@ export async function fetchMovieDetails(movieId) {
 }
 
 export async function fetchCast(movieId) {
-  const response = await axios(
-    `/search/movie/{movieId}/credits?api_key=${API_KEY}`
-  );
-  return response;
+  const response = await axios(`/movie/${movieId}/credits?api_key=${API_KEY}`);
+  return response.data.cast;
 }
 
 export async function fetchReviews(movieId) {
-  const response = await axios(
-    `/search/movie/{movieId}/reviews?api_key=${API_KEY}`
-  );
-  return response;
+  const response = await axios(`/movie/${movieId}/reviews?api_key=${API_KEY}`);
+  return response.data.results;
 }

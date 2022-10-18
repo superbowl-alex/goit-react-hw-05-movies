@@ -17,9 +17,11 @@ const TrendingMoviesList = () => {
     }
     fetch();
   }, []);
+
   if (!trendingMovies) {
     return null;
   }
+
   return (
     <ul>
       {trendingMovies.map(({ id, original_title }) => (
