@@ -1,13 +1,12 @@
-const Searchbar = ({ value, onChange, onSubmit }) => {
+const Searchbar = ({ value, onSubmit }) => {
   return (
     <>
       <form onSubmit={onSubmit}>
         <input
           type="text"
-          value={value}
+          name="query"
           autoComplete="off"
           placeholder="Search movies"
-          onChange={e => onChange(e.target.value)}
         />
         <button type="submit">Search</button>
       </form>

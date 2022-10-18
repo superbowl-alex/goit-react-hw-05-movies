@@ -5,44 +5,33 @@ import { useSearchParams } from 'react-router-dom';
 import { fetchSearchMovies } from '../../Services/fetchMovies';
 
 const Movies = () => {
-  const [query, setQuery] = useState('');
   const [searchMovies, setSearchMovies] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const querySearch = searchParams.get('query') ?? '';
-  const formSubmitHandler = e => {
-    e.preventDefault();
-    const validQuery = querySearch.trim();
-    setQuery(validQuery);
-  };
 
   useEffect(() => {
-    if (query === '') {
+    if (querySearch === '') {
       return;
     }
-
     async function fetch() {
       try {
-        const movies = await fetchSearchMovies(query);
+        const movies = await fetchSearchMovies(querySearch);
         setSearchMovies(movies);
       } catch (error) {
         console.log(error);
       }
     }
     fetch();
-  }, [query]);
+  }, [querySearch]);
 
-  const updateQueryString = query => {
-    const nextParams = query !== '' ? { query } : {};
-    setSearchParams(nextParams);
+  const formSubmitHandler = e => {
+    e.preventDefault();
+    setSearchParams({ query: e.currentTarget.elements.query.value.trim() });
   };
 
   return (
     <main>
-      <Searchbar
-        value={querySearch}
-        onChange={updateQueryString}
-        onSubmit={formSubmitHandler}
-      />
+      <Searchbar value={querySearch} onSubmit={formSubmitHandler} />
       {searchMovies && <SearchMoviesList movies={searchMovies} />}
     </main>
   );
