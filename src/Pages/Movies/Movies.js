@@ -31,7 +31,7 @@ const Movies = () => {
 
   return (
     <main>
-      <Searchbar value={querySearch} onSubmit={formSubmitHandler} />
+      <Searchbar onSubmit={formSubmitHandler} />
       {searchMovies && <SearchMoviesList movies={searchMovies} />}
     </main>
   );

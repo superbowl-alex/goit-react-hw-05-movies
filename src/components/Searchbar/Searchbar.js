@@ -1,4 +1,4 @@
-const Searchbar = ({ value, onSubmit }) => {
+const Searchbar = ({ onSubmit }) => {
   return (
     <>
       <form onSubmit={onSubmit}>
