@@ -32,7 +32,7 @@ const MovieDetails = () => {
       <Link to={backLinkHref}>Go back</Link>
       <MovieImage movie={movie} />
       <MovieDescription movie={movie} />
-      <AdditionInform movie={movie} />
+      <AdditionInform movie={movie} state={{ from: backLinkHref }} />
     </main>
   );
 };
