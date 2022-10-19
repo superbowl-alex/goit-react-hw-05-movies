@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
-import { fetchMovieDetails } from '../../Services/fetchMovies';
+import { fetchMovieDetails } from '../../services/fetchMovies';
 import MovieDescription from '../../components/MovieDescription';
 import MovieImage from '../../components/MovieImage';
 import AdditionInform from '../../components/AdditionInform';
