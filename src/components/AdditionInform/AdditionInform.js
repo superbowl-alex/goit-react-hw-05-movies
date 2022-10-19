@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 const AdditionInform = ({ movie: { id } }) => {
   return (
     <>
-      <h3>Additional snformation</h3>
+      <h3>Additional information</h3>
       <ul>
         <li>
           <NavLink to="cast">Cast</NavLink>
