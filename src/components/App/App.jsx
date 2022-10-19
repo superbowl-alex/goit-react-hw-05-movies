@@ -1,10 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from '../../Pages/Home';
-import Movies from '../../Pages/Movies';
-import MovieDetails from '../../Pages/MovieDetails';
-import Cast from 'components/Cast';
-import Reviews from 'components/Reviews';
+import { lazy } from 'react';
 import SharedLayout from 'components/SharedLayout';
+
+const createAsyncComponent = path => lazy(() => import(path));
+
+const Home = createAsyncComponent('../../pages/Home');
+const Movies = createAsyncComponent('../../pages/Movies');
+const MovieDetails = createAsyncComponent('../../pages/MovieDetails');
+const Cast = createAsyncComponent('../Cast');
+const Reviews = createAsyncComponent('../Reviews');
 
 export const App = () => {
   return (

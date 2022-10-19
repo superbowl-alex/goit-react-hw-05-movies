@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 
 const AdditionInform = ({ movie: { id } }) => {
   return (
@@ -12,7 +13,9 @@ const AdditionInform = ({ movie: { id } }) => {
           <NavLink to="reviews">Reviews</NavLink>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>{' '}
     </>
   );
 };
