@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Searchbar from 'components/Searchbar';
 import SearchMoviesList from 'components/SearchMoviesList';
-import { fetchSearchMovies } from '../../Services1/fetchMovies';
+import { fetchSearchMovies } from '../../services/fetchMovies';
 
 const Movies = () => {
   const [searchMovies, setSearchMovies] = useState(null);

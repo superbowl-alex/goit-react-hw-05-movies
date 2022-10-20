@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { fetchTrendingMovies } from '../../Services1/fetchMovies';
+import { fetchTrendingMovies } from '../../services/fetchMovies';
 
 const TrendingMoviesList = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);

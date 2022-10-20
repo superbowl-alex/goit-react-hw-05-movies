@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchCast } from '../../Services1/fetchMovies';
+import { fetchCast } from '../../services/fetchMovies';
 import { IoIosPerson } from 'react-icons/io';
 
 const Cast = () => {
