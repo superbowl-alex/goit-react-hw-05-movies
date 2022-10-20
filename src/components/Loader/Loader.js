@@ -1,15 +1,18 @@
 import React from 'react';
-import RingLoader from 'react-spinners/RingLoader';
+import PulseLoader from 'react-spinners/PulseLoader';
+import { WrapSpinner } from './Loader.styled';
 
 const Loader = () => {
   return (
-    <>
-      <RingLoader
-        size={150}
+    <WrapSpinner>
+      <PulseLoader
+        color={'#36d7b7'}
+        size={30}
+        speedMultiplier={0.5}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
-    </>
+    </WrapSpinner>
   );
 };
 
