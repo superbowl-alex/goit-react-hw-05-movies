@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
 import { fetchTrendingMovies } from '../../services/fetchMovies';
+import MovieCard from 'components/MovieCard';
 
 const TrendingMoviesList = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
-  const location = useLocation();
 
   useEffect(() => {
     async function fetch() {
@@ -24,10 +23,8 @@ const TrendingMoviesList = () => {
 
   return (
     <ul>
-      {trendingMovies.map(({ id, original_title }) => (
-        <NavLink key={id} to={`movies/${id}`} state={{ from: location }}>
-          {original_title}
-        </NavLink>
+      {trendingMovies.map(movie => (
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </ul>
   );

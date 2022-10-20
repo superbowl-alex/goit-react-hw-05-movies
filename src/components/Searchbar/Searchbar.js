@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Searchbar = ({ onSubmit }) => {
   return (
     <>
@@ -12,6 +14,10 @@ const Searchbar = ({ onSubmit }) => {
       </form>
     </>
   );
+};
+
+Searchbar.prjpTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Searchbar;

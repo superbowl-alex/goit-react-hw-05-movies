@@ -16,9 +16,10 @@ const SharedLayout = () => {
       </Header>
       <Suspense fallback={<div>Loading page...</div>}>
         <Outlet />
-      </Suspense>{' '}
+      </Suspense>
       <GlobalStyles />
     </Container>
   );
 };
+
 export default SharedLayout;

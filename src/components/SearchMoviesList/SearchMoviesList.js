@@ -1,18 +1,19 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import MovieCard from 'components/MovieCard';
 
 const SearchMoviesList = ({ movies }) => {
-  const location = useLocation();
-
   return (
     <ul>
-      {movies.map(({ id, original_title }) => (
-        <NavLink key={id} to={`${id}`} state={{ from: location }}>
-          {original_title}
-        </NavLink>
+      {movies.map(movie => (
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </ul>
   );
+};
+
+SearchMoviesList.propTypes = {
+  movies: PropTypes.array.isRequired,
 };
 
 export default SearchMoviesList;
