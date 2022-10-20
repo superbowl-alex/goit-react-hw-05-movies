@@ -30,7 +30,7 @@ const GlobalStyles = () => {
             'Droid Sans', 'Helvetica Neue', sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
-          background-color: #edf5e1;
+          background-color: #def2f1;
         }
 
         body::-webkit-scrollbar {
@@ -39,12 +39,12 @@ const GlobalStyles = () => {
         }
 
         body::-webkit-scrollbar-track {
-          background: #edf5e1;
+          background: #70c8c3;
         }
 
         body::-webkit-scrollbar-thumb {
-          background-color: #379683;
-          border-radius: 20px;
+          background-color: #feffff;
+          border-radius: 3px;
         }
 
         h1,

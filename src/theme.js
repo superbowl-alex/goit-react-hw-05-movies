@@ -1,12 +1,12 @@
 export const theme = {
   colors: {
     white: 'rgb(255, 255, 255)',
-    primaryText: 'rgb(1, 1, 1)',
-    secondaryText: 'rgb(104, 102, 102)',
-    primaryBacground: '#EDF5E1',
-    secondaryBacground: '#5cdb95',
-    buttonColor: '#379683',
-    buttonHoverColor: '#05386b',
+    primaryText: '#FEFFFF',
+    secondaryText: '#17252A',
+    primaryBacground: '#DEF2F1',
+    secondaryBacground: '#3AAFA9',
+    buttonColor: '#05807c',
+    buttonHoverColor: '#01d2cb',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   borders: {
