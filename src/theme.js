@@ -2,7 +2,7 @@ export const theme = {
   colors: {
     white: 'rgb(255, 255, 255)',
     primaryText: '#FEFFFF',
-    secondaryText: '#17252A',
+    secondaryText: '#174a5b',
     primaryBacground: '#DEF2F1',
     secondaryBacground: '#3AAFA9',
     buttonColor: '#05807c',

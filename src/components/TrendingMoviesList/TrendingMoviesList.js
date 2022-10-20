@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchTrendingMovies } from '../../services/fetchMovies';
 import MovieCard from 'components/MovieCard';
+import { TrendingList } from './TrendingMoviesList.styled';
 
 const TrendingMoviesList = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -22,11 +23,11 @@ const TrendingMoviesList = () => {
   }
 
   return (
-    <ul>
+    <TrendingList>
       {trendingMovies.map(movie => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
-    </ul>
+    </TrendingList>
   );
 };
 
