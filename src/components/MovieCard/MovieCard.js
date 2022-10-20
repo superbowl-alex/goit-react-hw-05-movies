@@ -6,7 +6,6 @@ import { MovieItem, MovieItemImage, MovieItemTitle } from './MovieCard.styled';
 const MovieCard = ({ movie: { id, original_title, poster_path } }) => {
   const location = useLocation();
   const currentLocation = '/movies';
-  // location.pathname === '/movies' ? '/movies' : '/movies';
 
   return (
     <MovieItem to={`${currentLocation}/${id}`} state={{ from: location }}>

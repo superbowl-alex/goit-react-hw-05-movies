@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MovieCard from 'components/MovieCard';
+import { SearchList } from './SearchMoviesList.styled';
 
 const SearchMoviesList = ({ movies }) => {
   return (
-    <ul>
+    <SearchList>
       {movies.map(movie => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
-    </ul>
+    </SearchList>
   );
 };
 
