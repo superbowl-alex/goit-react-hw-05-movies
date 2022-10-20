@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { BsImage } from 'react-icons/bs';
 
 const MovieImage = ({ movie: { original_title, poster_path } }) => {
@@ -13,6 +14,13 @@ const MovieImage = ({ movie: { original_title, poster_path } }) => {
       )}
     </>
   );
+};
+
+MovieImage.propTypes = {
+  movie: PropTypes.shape({
+    original_title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+  }),
 };
 
 export default MovieImage;

@@ -1,5 +1,6 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
+import PropTypes from 'prop-types';
 
 const AdditionInform = ({ movie: { id } }) => {
   const location = useLocation();
@@ -25,6 +26,12 @@ const AdditionInform = ({ movie: { id } }) => {
       </Suspense>{' '}
     </>
   );
+};
+
+AdditionInform.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }),
 };
 
 export default AdditionInform;
