@@ -1,6 +1,7 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
 import PropTypes from 'prop-types';
+import Loader from 'components/Loader';
 
 const AdditionInform = ({ movie: { id } }) => {
   const location = useLocation();
@@ -21,7 +22,7 @@ const AdditionInform = ({ movie: { id } }) => {
           </NavLink>
         </li>
       </ul>
-      <Suspense fallback={<div>Loading subpage...</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>{' '}
     </>

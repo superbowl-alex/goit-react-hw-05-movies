@@ -5,9 +5,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import Searchbar from 'components/Searchbar';
 import SearchMoviesList from 'components/SearchMoviesList';
 import { fetchSearchMovies } from '../../services/fetchMovies';
+import Loader from 'components/Loader';
 
 const Movies = () => {
   const [searchMovies, setSearchMovies] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const querySearch = searchParams.get('query') ?? '';
 
@@ -15,6 +17,7 @@ const Movies = () => {
     if (querySearch === '') {
       return;
     }
+    setIsLoading(true);
     async function fetch() {
       try {
         const movies = await fetchSearchMovies(querySearch);
@@ -26,6 +29,8 @@ const Movies = () => {
         setSearchMovies(movies);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     }
     fetch();
@@ -39,7 +44,6 @@ const Movies = () => {
         theme: 'colored',
       });
     }
-
     setSearchParams({ query: searchedQuery });
   };
 
@@ -47,6 +51,7 @@ const Movies = () => {
     <main>
       <Searchbar onSubmit={formSubmitHandler} />
       {searchMovies && <SearchMoviesList movies={searchMovies} />}
+      {isLoading && <Loader />}
       <ToastContainer />
     </main>
   );

@@ -19,7 +19,7 @@ const MovieImage = ({ movie: { original_title, poster_path } }) => {
 MovieImage.propTypes = {
   movie: PropTypes.shape({
     original_title: PropTypes.string.isRequired,
-    poster_path: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
   }),
 };
 
