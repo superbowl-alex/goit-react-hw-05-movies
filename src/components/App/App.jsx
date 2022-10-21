@@ -1,12 +1,17 @@
 import { Routes, Route } from 'react-router-dom';
-import React from 'react';
+import React, { lazy } from 'react';
+import OnlyScroll from 'only-scrollbar';
 import SharedLayout from 'components/SharedLayout';
 
-const Home = React.lazy(() => import('../../pages/Home'));
-const Movies = React.lazy(() => import('../../pages/Movies'));
-const MovieDetails = React.lazy(() => import('../../pages/MovieDetails'));
-const Cast = React.lazy(() => import('../Cast'));
-const Reviews = React.lazy(() => import('../Reviews'));
+new OnlyScroll(document.scrollingElement, {
+  damping: 0.8,
+});
+
+const Home = lazy(() => import('../../pages/Home'));
+const Movies = lazy(() => import('../../pages/Movies'));
+const MovieDetails = lazy(() => import('../../pages/MovieDetails'));
+const Cast = lazy(() => import('../Cast'));
+const Reviews = lazy(() => import('../Reviews'));
 
 export const App = () => {
   return (

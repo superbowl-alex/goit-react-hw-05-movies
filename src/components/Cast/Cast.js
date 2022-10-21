@@ -3,6 +3,13 @@ import { useParams } from 'react-router-dom';
 import { fetchCast } from '../../services/fetchMovies';
 import { IoIosPerson } from 'react-icons/io';
 import ErrorMessage from 'components/ErrorMessage';
+import {
+  CastList,
+  CastItem,
+  CastImage,
+  CastTitle,
+  CharacterTitle,
+} from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -22,6 +29,14 @@ const Cast = () => {
     fetch();
   }, [movieId]);
 
+  useEffect(() => {
+    window.scroll({
+      top: 570,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [cast]);
+
   if (!cast) {
     return null;
   }
@@ -35,22 +50,24 @@ const Cast = () => {
     return (
       <>
         {error && <ErrorMessage />}
-        {cast.map(({ id, original_name, character, profile_path }) => (
-          <div key={id}>
-            {profile_path ? (
-              <img
-                src={`https://www.themoviedb.org/t/p/w200${profile_path}`}
-                alt={original_name}
-                loading="lazy"
-              />
-            ) : (
-              <IoIosPerson size={200} color="#6b6969" />
-            )}
+        <CastList>
+          {cast.map(({ id, original_name, character, profile_path }) => (
+            <CastItem key={id}>
+              {profile_path ? (
+                <CastImage
+                  src={`https://www.themoviedb.org/t/p/w200${profile_path}`}
+                  alt={original_name}
+                  loading="lazy"
+                />
+              ) : (
+                <IoIosPerson size={230} />
+              )}
 
-            <div>{original_name}</div>
-            <div>Character: {character}</div>
-          </div>
-        ))}
+              <CastTitle>{original_name}</CastTitle>
+              <CharacterTitle>Character: {character}</CharacterTitle>
+            </CastItem>
+          ))}
+        </CastList>
       </>
     );
   }

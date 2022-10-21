@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviews } from '../../services/fetchMovies';
 import ErrorMessage from 'components/ErrorMessage';
+import { TitleReviews, TextReviews, AlertReviews } from './Reviews.styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -21,12 +22,22 @@ const Reviews = () => {
     fetch();
   }, [movieId]);
 
+  useEffect(() => {
+    window.scroll({
+      top: 570,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [reviews]);
+
   if (!reviews) {
     return null;
   }
 
   if (reviews.length === 0) {
-    return <div>We don`t have any reviews for this movie.</div>;
+    return (
+      <AlertReviews>We don`t have any reviews for this movie.</AlertReviews>
+    );
   } else {
     return (
       <>
@@ -34,8 +45,8 @@ const Reviews = () => {
         <ul>
           {reviews.map(({ author, content }) => (
             <li key={author}>
-              <div>Author: {author}</div>
-              <div>{content}</div>
+              <TitleReviews>Author: {author}</TitleReviews>
+              <TextReviews>{content}</TextReviews>
             </li>
           ))}
         </ul>
