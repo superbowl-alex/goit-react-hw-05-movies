@@ -16,7 +16,6 @@ export const MovieRef = styled(NavLink)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* justify-content: space-between; */
   > svg {
     width: 100%;
     object-fit: cover;

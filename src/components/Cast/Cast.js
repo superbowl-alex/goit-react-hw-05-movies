@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCast } from '../../services/fetchMovies';
 import { IoIosPerson } from 'react-icons/io';
+import ErrorMessage from 'components/ErrorMessage';
 
 const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetch() {
@@ -13,6 +15,7 @@ const Cast = () => {
         const movieCast = await fetchCast(movieId);
         setCast(movieCast);
       } catch (error) {
+        setError(true);
         console.log(error);
       }
     }
@@ -31,6 +34,7 @@ const Cast = () => {
   } else {
     return (
       <>
+        {error && <ErrorMessage />}
         {cast.map(({ id, original_name, character, profile_path }) => (
           <div key={id}>
             {profile_path ? (

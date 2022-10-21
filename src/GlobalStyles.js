@@ -7,8 +7,7 @@ const GlobalStyles = () => {
         @import-normalize; /* bring in normalize.css styles */
 
         :root {
-          --toastify-color-info: #379683;
-          --toastify-color-warning: #05386b;
+          --toastify-color-warning: #05807c;
         }
 
         html {

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviews } from '../../services/fetchMovies';
+import ErrorMessage from 'components/ErrorMessage';
 
 const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetch() {
@@ -12,6 +14,7 @@ const Reviews = () => {
         const movieReviews = await fetchReviews(movieId);
         setReviews(movieReviews);
       } catch (error) {
+        setError(true);
         console.log(error);
       }
     }
@@ -26,14 +29,17 @@ const Reviews = () => {
     return <div>We don`t have any reviews for this movie.</div>;
   } else {
     return (
-      <ul>
-        {reviews.map(({ author, content }) => (
-          <li key={author}>
-            <div>Author: {author}</div>
-            <div>{content}</div>
-          </li>
-        ))}
-      </ul>
+      <>
+        {error && <ErrorMessage />}
+        <ul>
+          {reviews.map(({ author, content }) => (
+            <li key={author}>
+              <div>Author: {author}</div>
+              <div>{content}</div>
+            </li>
+          ))}
+        </ul>
+      </>
     );
   }
 };

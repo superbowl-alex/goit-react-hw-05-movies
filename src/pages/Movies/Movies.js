@@ -6,10 +6,12 @@ import Searchbar from 'components/Searchbar';
 import SearchMoviesList from 'components/SearchMoviesList';
 import { fetchSearchMovies } from '../../services/fetchMovies';
 import Loader from 'components/Loader';
+import ErrorMessage from 'components/ErrorMessage';
 
 const Movies = () => {
   const [searchMovies, setSearchMovies] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const querySearch = searchParams.get('query') ?? '';
 
@@ -28,6 +30,7 @@ const Movies = () => {
         }
         setSearchMovies(movies);
       } catch (error) {
+        setError(true);
         console.log(error);
       } finally {
         setIsLoading(false);
@@ -51,6 +54,7 @@ const Movies = () => {
     <main>
       <Searchbar onSubmit={formSubmitHandler} />
       {searchMovies && <SearchMoviesList movies={searchMovies} />}
+      {error && <ErrorMessage />}
       {isLoading && <Loader />}
       <ToastContainer />
     </main>
