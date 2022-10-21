@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useLocation, Link } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from '../../services/fetchMovies';
 import MovieDescription from '../../components/MovieDescription';
 import MovieImage from '../../components/MovieImage';
 import AdditionInform from '../../components/AdditionInform';
+import { GoBackLink, WrapDescription } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -29,9 +30,11 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <Link to={backLinkHref}>Go back</Link>
-      <MovieImage movie={movie} />
-      <MovieDescription movie={movie} />
+      <GoBackLink to={backLinkHref}>Go back</GoBackLink>
+      <WrapDescription>
+        <MovieImage movie={movie} />
+        <MovieDescription movie={movie} />
+      </WrapDescription>
       <AdditionInform movie={movie} state={{ from: backLinkHref }} />
     </main>
   );

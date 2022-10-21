@@ -1,4 +1,9 @@
 import PropTypes from 'prop-types';
+import {
+  WrapText,
+  TitleDescription,
+  SubTitleDescription,
+} from './MovieDescription.styled';
 
 const MovieDescription = ({
   movie: { original_title, overview, vote_average, genres, release_date },
@@ -7,16 +12,24 @@ const MovieDescription = ({
   const movieRelease = new Date(release_date).getFullYear();
 
   return (
-    <>
+    <WrapText>
+      <TitleDescription>
+        {original_title} ({movieRelease || 'Release date unknown'})
+      </TitleDescription>
+      <SubTitleDescription>User score: {userScore}</SubTitleDescription>
       <div>
-        {original_title} ({movieRelease})
+        <SubTitleDescription>Overview</SubTitleDescription>
+        <div>{overview}</div>
       </div>
-      <div>User score: {userScore}</div>
-      <div>Overview</div>
-      <div>{overview}</div>
-      <div>Genres</div>
-      <div>{genres.map(({ name }) => name).join(' ')}</div>
-    </>
+      <div>
+        <SubTitleDescription>Genres</SubTitleDescription>
+        {genres.length > 0 ? (
+          <div>{genres.map(({ name }) => name).join(', ')}</div>
+        ) : (
+          <div>{'No data'}</div>
+        )}
+      </div>
+    </WrapText>
   );
 };
 

@@ -19,6 +19,7 @@ export const MovieRef = styled(NavLink)`
   > svg {
     width: 100%;
     object-fit: cover;
+    fill: ${p => p.theme.colors.secondaryBacground};
   }
 `;
 

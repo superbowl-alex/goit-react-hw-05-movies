@@ -41,6 +41,7 @@ const Cast = () => {
               <img
                 src={`https://www.themoviedb.org/t/p/w200${profile_path}`}
                 alt={original_name}
+                loading="lazy"
               />
             ) : (
               <IoIosPerson size={200} color="#6b6969" />

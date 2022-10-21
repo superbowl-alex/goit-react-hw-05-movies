@@ -19,9 +19,10 @@ const MovieCard = ({ movie: { id, original_title, poster_path } }) => {
           <MovieItemImage
             src={`https://www.themoviedb.org/t/p/w300${poster_path}`}
             alt={original_title}
+            loading="lazy"
           />
         ) : (
-          <BsFileImage size={400} color="#6b6969" />
+          <BsFileImage size={400} />
         )}
         <MovieItemTitle> {original_title}</MovieItemTitle>
       </MovieRef>

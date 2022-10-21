@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types';
-import { BsImage } from 'react-icons/bs';
+import { BsFileImage } from 'react-icons/bs';
+import { Image, WrapSvg } from './MovieImage.styled';
 
 const MovieImage = ({ movie: { original_title, poster_path } }) => {
   return (
     <>
       {poster_path ? (
-        <img
+        <Image
           src={`https://www.themoviedb.org/t/p/w300${poster_path}`}
           alt={original_title}
+          loading="lazy"
         />
       ) : (
-        <BsImage size={200} color="#6b6969" />
+        <WrapSvg>
+          <BsFileImage size={300} />
+        </WrapSvg>
       )}
     </>
   );

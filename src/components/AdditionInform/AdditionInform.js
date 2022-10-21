@@ -1,7 +1,12 @@
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
 import PropTypes from 'prop-types';
 import Loader from 'components/Loader';
+import {
+  SubTitleAdditional,
+  ListAdditional,
+  LinkAdditional,
+} from './AdditionInform.styled';
 
 const AdditionInform = ({ movie: { id } }) => {
   const location = useLocation();
@@ -9,22 +14,22 @@ const AdditionInform = ({ movie: { id } }) => {
 
   return (
     <>
-      <h3>Additional information</h3>
-      <ul>
+      <SubTitleAdditional>Additional information</SubTitleAdditional>
+      <ListAdditional>
         <li>
-          <NavLink to="cast" state={{ from: backLinkHref }}>
+          <LinkAdditional to="cast" state={{ from: backLinkHref }}>
             Cast
-          </NavLink>
+          </LinkAdditional>
         </li>
         <li>
-          <NavLink to="reviews" state={{ from: backLinkHref }}>
+          <LinkAdditional to="reviews" state={{ from: backLinkHref }}>
             Reviews
-          </NavLink>
+          </LinkAdditional>
         </li>
-      </ul>
+      </ListAdditional>
       <Suspense fallback={<Loader />}>
         <Outlet />
-      </Suspense>{' '}
+      </Suspense>
     </>
   );
 };

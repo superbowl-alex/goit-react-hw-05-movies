@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import {
   Container,
+  InnerContainer,
   Header,
   Navigation,
   LogoLink,
@@ -34,9 +35,11 @@ const SharedLayout = () => {
           </HeaderList>
         </Navigation>
       </Header>
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+      <InnerContainer>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </InnerContainer>
       <GlobalStyles />
     </Container>
   );

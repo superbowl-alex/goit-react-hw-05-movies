@@ -4,8 +4,7 @@ export const SearchWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: ${p => p.theme.space[5]}px;
-  padding-bottom: ${p => p.theme.space[5]}px;
+  margin-bottom: ${p => p.theme.space[5]}px;
 `;
 
 export const SearchForm = styled.form`

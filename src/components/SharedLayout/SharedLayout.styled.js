@@ -5,6 +5,10 @@ export const Container = styled.div`
   padding-bottom: ${p => p.theme.space[4]}px;
 `;
 
+export const InnerContainer = styled.div`
+  padding: ${p => p.theme.space[5]}px;
+`;
+
 export const Header = styled.header`
   top: 0;
   left: 0;
