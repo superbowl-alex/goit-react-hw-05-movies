@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import ScrollUp from 'components/ScrollUp';
 import {
   Container,
   InnerContainer,
@@ -40,6 +41,7 @@ const SharedLayout = () => {
           <Outlet />
         </Suspense>
       </InnerContainer>
+      <ScrollUp />
       <GlobalStyles />
     </Container>
   );
