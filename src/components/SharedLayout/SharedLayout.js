@@ -22,7 +22,7 @@ const SharedLayout = () => {
         <Navigation>
           <LogoLink to="/">
             <StyledLogo src={Logo} alt="logo" />
-            <span>Filmoteka</span>
+            <span>Movie Time</span>
           </LogoLink>
           <HeaderList>
             <li>
